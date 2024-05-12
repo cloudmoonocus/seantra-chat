@@ -6,15 +6,24 @@
     <img src="https://img.shields.io/github/release/cloudmoonocus/seantra-chat" />
     <img src="https://img.shields.io/github/license/cloudmoonocus/seantra-chat.svgS" />
 </div>
+<div align="center">
+    <img src="https://img.shields.io/badge/前端-gray?logo=html5" />
+    <img src="https://img.shields.io/badge/|-gray" />
+    <img src="https://img.shields.io/badge/Next.js-gray?logo=next.js" />
+    <img src="https://img.shields.io/badge/region/core-gray?logo=baidu" />
+    <img src="https://img.shields.io/badge/TailwindCSS-gray?logo=TailwindCSS" />
+    <img src="https://img.shields.io/badge/shadcn/ui-gray?logo=shadcnui" />
+    <img src="https://img.shields.io/badge/Socket.io-gray?logo=socket.io" />
+</div>
+<div align="center">
+    <img src="https://img.shields.io/badge/后端-gray?logo=node.js" />
+    <img src="https://img.shields.io/badge/|-gray" />
+    <img src="https://img.shields.io/badge/Express-gray?logo=express" />
+    <img src="https://img.shields.io/badge/MongoDB-gray?logo=mongodb" />
+    <img src="https://img.shields.io/badge/Mongoose-gray?logo=mongoose" />
+    <img src="https://img.shields.io/badge/Socket.io-gray?logo=socket.io" />
+</div>
 
-- 💁🏻 前端：![Next.js](https://img.shields.io/badge/Next.js-gray?logo=next.js
-  ) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-gray?logo=TailwindCSS
-  ) ![Socket.io](https://img.shields.io/badge/Socket.io-gray?logo=socketio
-  )
-- 💻 后端：![express](https://img.shields.io/badge/Express-gray?logo=express
-  ) ![MongoDB](https://img.shields.io/badge/MongoDB-gray?logo=mongodb
-  ) ![Socket.io](https://img.shields.io/badge/Socket.io-gray?logo=socketio
-  )
 - - -
 
 本项目使用 concurrently 并行启动多个服务，分别是：
