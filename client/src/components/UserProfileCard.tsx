@@ -90,7 +90,8 @@ function UserProfileCard({ children, userId: targetUserId }: UserProfileCardProp
                     <div className='w-20'>注册日期：</div>
                     <span
                         className='text-muted-foreground max-w-56 truncate'
-                        title={moment(createdTime).format('YYYY年MM月DD日')}>
+                        title={moment(createdTime).format('YYYY年MM月DD日')}
+                    >
                         {createdTime ? moment(createdTime).format('YYYY年MM月DD日') : '-'}
                     </span>
                 </div>

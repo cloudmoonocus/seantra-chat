@@ -57,7 +57,8 @@ function Chat() {
                 return (
                     <div
                         key={index}
-                        className={`flex gap-2 items-start ${isSelf ? 'flex-row-reverse self-end' : 'flex-row self-start'} group`}>
+                        className={`flex gap-2 items-start ${isSelf ? 'flex-row-reverse self-end' : 'flex-row self-start'} group`}
+                    >
                         <UserProfileCard userId={message.senderId}>
                             <Avatar>
                                 <AvatarImage src={getAvatar(message.senderId)} />
