@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const http = require('http');
-const { messageRouter, connectSocket, userRouter } = require('../routes');
+const { messageRouter, connectSocket, userRouter, contactRouter } = require('../routes');
 const connectMongoDB = require('./mongodb');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -19,6 +19,7 @@ app.use(
 );
 app.use('/api/message', messageRouter);
 app.use('/api/user', userRouter);
+app.use('/api/contact', contactRouter);
 app.use((err, req, res) => {
     res.status(err.status ?? 500).json({ message: err.message });
 });

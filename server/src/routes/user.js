@@ -8,7 +8,7 @@ const uuid = require('uuid');
 const { authenticateToken } = require('../middleWare');
 
 const generateToken = (userId) => {
-    return jwt.sign({ userId }, process.env.SECRET_KEY, { expiresIn: '24h' });
+    return jwt.sign({ userId }, process.env.SECRET_KEY, { expiresIn: '720h' }); // TODO 测试使用，生产环境需要更换
 };
 
 const bcryptPassword = async (password) => {
