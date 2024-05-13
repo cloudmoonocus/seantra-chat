@@ -33,7 +33,7 @@
 
 ### 开发
 
-在 /server 目录下新建 .env.local, 新增如下配置
+在 /server 目录下新建 `.env.local`, 新增如下配置
 
 ```dotenv
 DATABASE_URL = [MongoDB 连接地址] (例如 mongodb://localhost:27017/next-starter)
@@ -49,17 +49,27 @@ process.env.SECRET_KEY = secretKey;
 
 ```bash
 nvm use
-yarn dev
+
+// 安装依赖
+pnpm install
+// 如果在根目录安装报错，执行以下命令
+cd client && pnpm install
+cd server && pnpm install
+
+// 启动开发
+pnpm dev
 ```
 
 ### 构建
 
 ```bash
-yarn build
+nvm use
+pnpm build
 ```
 
 ### 启动
 
 ```bash
-yarn start
+nvm use
+pnpm start
 ```

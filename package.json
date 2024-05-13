@@ -10,7 +10,7 @@
         "build": "cd ./client && npm run build",
         "lint": "concurrently \"cd ./server && npm run lint\" \"cd ./client && npm run lint\"",
         "format": "concurrently \"cd ./server && npm run format\" \"cd ./client && npm run format\"",
-        "install": "concurrently \"yarn install\" \"cd ./server && yarn install\" \"cd ./client && yarn install\""
+        "install": "concurrently \"pnpm install\" \"cd ./server && pnpm install\" \"cd ./client && pnpm install\""
     },
   "devDependencies": {
     "concurrently": "^8.2.2"
