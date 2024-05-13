@@ -1,18 +1,22 @@
 {
-  "name": "chat-app",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "private": true,
+    "name": "chat-app",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "private": true,
     "scripts": {
         "dev": "concurrently \"cd ./server && npm run server\" \"cd ./client && npm run dev\"",
         "start": "concurrently \"cd ./server && npm run start\" \"cd ./client && npm run start\"",
         "build": "cd ./client && npm run build",
         "lint": "concurrently \"cd ./server && npm run lint\" \"cd ./client && npm run lint\"",
         "format": "concurrently \"cd ./server && npm run format\" \"cd ./client && npm run format\"",
-        "install": "concurrently \"pnpm install\" \"cd ./server && pnpm install\" \"cd ./client && pnpm install\""
+        "install": "concurrently \"pnpm install\" \"cd ./server && pnpm install\" \"cd ./client && pnpm install\"",
+        "prepare": "husky install"
     },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
-  }
+    "devDependencies": {
+        "@commitlint/cli": "^19.3.0",
+        "@commitlint/config-conventional": "^19.2.2",
+        "concurrently": "^8.2.2",
+        "husky": "^9.0.11"
+    }
 }
