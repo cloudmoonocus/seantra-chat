@@ -1,7 +1,7 @@
 'use client';
 import './globals.css';
 import React, { useEffect } from 'react';
-import LeftSide from '@/components/leftSide';
+import MenuSide from '@/components/menuSide';
 import { io } from 'socket.io-client';
 import { getSocket, setSocket } from '@/region/socket';
 import { loadMessageListMap, setMessageListMap } from '@/region/chat';
@@ -12,6 +12,7 @@ import { PostMessage } from '@/api/message';
 import { cloneDeep } from 'lodash-es';
 import { getUserInfo, loadUserInfo } from '@/region/user';
 import { useAsyncEffect } from 'ahooks';
+import { loadContactsListMap } from '@/region/contacts';
 
 const initSocketIo = () => {
     const { userId } = getUserInfo() ?? {};
@@ -31,7 +32,7 @@ const initSocketIo = () => {
     return socket;
 };
 
-function ChatMain({ children }: { children: React.ReactNode }) {
+const ChatMain = React.memo(function MainContent({ children }: { children: React.ReactNode }) {
     useAsyncEffect(async () => {
         // 获取用户信息
         await loadUserInfo();
@@ -39,6 +40,8 @@ function ChatMain({ children }: { children: React.ReactNode }) {
         await loadMessageListMap();
         // 初始化 socket.io
         const socket = initSocketIo();
+        // 获取联系人列表
+        await loadContactsListMap();
         setSocket(socket);
     }, []);
 
@@ -51,11 +54,11 @@ function ChatMain({ children }: { children: React.ReactNode }) {
 
     return (
         <>
-            <LeftSide />
+            <MenuSide />
             {children}
         </>
     );
-}
+});
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     const router = useRouter();

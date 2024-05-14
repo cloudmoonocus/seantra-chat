@@ -1,5 +1,5 @@
 'use client';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { useCallback, useMemo } from 'react';
 import { setCurrentChatConfig, useCurrentChatConfig, useMessageListMap, useMessageListMapLoading } from '@/region/chat';
@@ -10,7 +10,6 @@ import { getAvatar } from '@/lib/utils';
 
 function LeftPanel() {
     const currentChatConfig = useCurrentChatConfig();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     const messageMapList = useMessageListMap() ?? {};
     const messageMapListLoading = useMessageListMapLoading();
 
@@ -36,8 +35,7 @@ function LeftPanel() {
                 <Card
                     key={conversationId}
                     className={`flex items-center gap-3 h-16 px-3 cursor-pointer hover:bg-gray-100 [&:not(:last-child)]:mb-3 ${userId === currentChatConfig?.receiverId ? 'bg-slate-200 border border-b-gray-600 border-x-gray-500 border-t-gray-400' : ''}`}
-                    onClick={() => onClickCard(userId, conversationId, targetUserInfo)}
-                >
+                    onClick={() => onClickCard(userId, conversationId, targetUserInfo)}>
                     <Avatar>
                         <AvatarImage src={getAvatar(userId)} />
                         <AvatarFallback>{userId}</AvatarFallback>
@@ -49,31 +47,23 @@ function LeftPanel() {
     }, [currentChatConfig?.receiverId, messageMapList, onClickCard]);
 
     return (
-        <div className='w-96'>
-            <Card className='flex flex-col h-full max-h-full border-none bg-leftPanel'>
-                <CardHeader className='h-28'>
-                    <CardTitle>聊天</CardTitle>
-                    <CardDescription>早上好！</CardDescription>
-                </CardHeader>
-                <CardContent className='flex-auto overflow-y-auto'>
-                    {messageMapListLoading ? (
-                        <div className='flex flex-col gap-3'>
-                            <Skeleton className='h-16 bg-gray-300' />
-                            <Skeleton className='h-16 bg-gray-200' />
-                            <Skeleton className='h-16 bg-gray-300' />
-                            <Skeleton className='h-16 bg-gray-200' />
-                            <Skeleton className='h-16 bg-gray-300' />
-                            <Skeleton className='h-16 bg-gray-200' />
-                            <Skeleton className='h-16 bg-gray-200' />
-                        </div>
-                    ) : Object.keys(messageMapList) ? (
-                        <>{messageCardList}</>
-                    ) : (
-                        <NoChat />
-                    )}
-                </CardContent>
-            </Card>
-        </div>
+        <>
+            {messageMapListLoading ? (
+                <div className='flex flex-col gap-3'>
+                    <Skeleton className='h-16 bg-gray-300' />
+                    <Skeleton className='h-16 bg-gray-200' />
+                    <Skeleton className='h-16 bg-gray-300' />
+                    <Skeleton className='h-16 bg-gray-200' />
+                    <Skeleton className='h-16 bg-gray-300' />
+                    <Skeleton className='h-16 bg-gray-200' />
+                    <Skeleton className='h-16 bg-gray-200' />
+                </div>
+            ) : Object.keys(messageMapList) ? (
+                <>{messageCardList}</>
+            ) : (
+                <NoChat />
+            )}
+        </>
     );
 }
 
