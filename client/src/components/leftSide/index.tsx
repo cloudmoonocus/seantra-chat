@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+import UserSearch from '@/components/leftSide/userSearch';
 
 interface LeftSideProps {
     title?: React.ReactNode;
@@ -14,7 +14,7 @@ export default function LeftSide(props: LeftSideProps) {
     return (
         <Card className='flex flex-col h-full max-h-full bg-leftPanel w-96 border-l-0 border-t-0 border-b-0 rounded-l-none rounded-r-[15px]'>
             <div className='flex flex-col gap-3 py-6 px-4'>
-                <Input type='search' placeholder='搜索' />
+                <UserSearch />
                 <div className='border-t border-gray-200' />
                 {topChildren}
             </div>

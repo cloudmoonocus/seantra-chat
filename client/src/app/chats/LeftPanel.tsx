@@ -35,7 +35,8 @@ function LeftPanel() {
                 <Card
                     key={conversationId}
                     className={`flex items-center gap-3 h-16 px-3 cursor-pointer hover:bg-gray-100 [&:not(:last-child)]:mb-3 ${userId === currentChatConfig?.receiverId ? 'bg-slate-200 border border-b-gray-600 border-x-gray-500 border-t-gray-400' : ''}`}
-                    onClick={() => onClickCard(userId, conversationId, targetUserInfo)}>
+                    onClick={() => onClickCard(userId, conversationId, targetUserInfo)}
+                >
                     <Avatar>
                         <AvatarImage src={getAvatar(userId)} />
                         <AvatarFallback>{userId}</AvatarFallback>

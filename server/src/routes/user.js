@@ -124,4 +124,23 @@ router.post(
     }),
 );
 
+// 搜索用户，支持模糊搜索，匹配用户名
+router.get(
+    '/search',
+    authenticateToken,
+    asyncHandler(async (req, res) => {
+        const { keyword } = req.query;
+        if (!keyword || !keyword.trim()) {
+            return res.send({ code: 400, message: '请输入搜索关键字' });
+        }
+        const users = await UserModel.find({
+            $or: [{ username: { $regex: keyword, $options: 'i' } }],
+        });
+        // 过滤掉当前用户
+        const { userId } = req.userData;
+        const filteredUsers = users.filter((user) => user.userId !== userId);
+        res.send({ code: 200, data: filteredUsers });
+    }),
+);
+
 module.exports = router;

@@ -26,3 +26,8 @@ export function apiGetUserInfo(userId?: string): Result<UserInfo> {
     const url = userId ? `/user/info?userId=${userId}` : '/user/info';
     return request.get(url);
 }
+
+// 搜索用户，模糊搜索，用户名
+export function apiSearchUser(keyword: string): Result<UserInfo[]> {
+    return request.get(`/user/search?keyword=${keyword}`);
+}

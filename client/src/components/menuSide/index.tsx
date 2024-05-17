@@ -13,24 +13,24 @@ import { useUserInfo } from '@/region/user';
 import UserProfileCard from '@/components/UserProfileCard';
 
 const iconConfigs = [
-    {
-        key: 'avatar',
-        title: '个人主页',
-        iconName: <Avatar theme='outline' size='17' />,
-        route: '/profile',
-    },
+    // {
+    //     key: 'avatar',
+    //     title: '个人主页',
+    //     iconName: <Avatar theme='outline' size='17' />,
+    //     route: '/profile',
+    // },
     {
         key: 'chats',
         title: '聊天',
         iconName: <Chats theme='outline' size='17' />,
         route: '/chats',
     },
-    {
-        key: 'group',
-        title: '群组',
-        iconName: <Group theme='outline' size='17' />,
-        route: '/group',
-    },
+    // {
+    //     key: 'group',
+    //     title: '群组',
+    //     iconName: <Group theme='outline' size='17' />,
+    //     route: '/group',
+    // },
     {
         key: 'contacts',
         title: '联系人',
@@ -41,7 +41,7 @@ const iconConfigs = [
 
 export default function MenuSide() {
     const pathname = usePathname();
-    const { userId, username, email, createdTime } = useUserInfo() ?? {};
+    const { userId, username } = useUserInfo() ?? {};
 
     return (
         <div className='w-full lg:w-[75px] shadow lg:flex lg:flex-col flex flex-row justify-between items-center fixed lg:relative z-40 bottom-0 bg-white dark:bg-zinc-600'>
@@ -55,7 +55,8 @@ export default function MenuSide() {
                             key={config.key}
                             href={config.route}
                             title={config.title}
-                            className={`link ${pathname === config.route ? 'bg-slate-200' : ''}`}>
+                            className={`link ${pathname === config.route ? 'bg-slate-200' : ''}`}
+                        >
                             <li className='flex justify-center items-center h-16 hover:bg-slate-100 cursor-pointer'>
                                 {config.iconName}
                             </li>
